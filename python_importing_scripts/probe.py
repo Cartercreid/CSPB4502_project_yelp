@@ -2,34 +2,11 @@
 #import simplejson as json
 import os
 import pandas as pd
-
-#k = 0
-#with open('business.json') as json_file:
-#	data = json.load(json_file_
-#	for i in data['name']:
-#		print('Name: ' + i['name'])
-#		if (k >=100):
-#			break;
-#parsed_json = (json.loads(business.json)
-#print(json.dumps(parsed_json, indent=4, sort_keys=True))
-"""
-filn = 'tip.json'
-with open(filn, 'r') as f:
-	if os.stat(filn).st_size !=0:
-		business_dict = json.load(f)
-	else:
-		bisiness_dict = {'user_id' : 0}
-	
-for business in business_dict:
-	print(business['user_id'])
-"""
+"""read returns a tuple, first value is a bool, 1 for success, 0 for failure, and the second value is a list of large dataframes. It can take a while to run."""
 def read(file_name):
     try:
-	#with open(file_name, 'rb' ) as csv_file:
-	#reader = csv.reader(csv_file, delimiter=',')
-	#c_pd = pd.DataFrame(list(reader))	
+		#need to iterate through, because some of the csv files are too large and kill the program (Error: killed)
         c_pd = pd.read_csv(file_name, iterator=True, chunksize=10000)
-        #g_c_pd = pd.concat(c_pd)
         return (1,c_pd);
     except:
         print("error reading file: ", file_name)
@@ -48,11 +25,11 @@ def main():
 			(check, dataf) = read(user_in)
 			if (check == 1):
 				print("read successful")
-				#print(dataf.head(10))
+				#dataf is not a dataframe, but a nonindexable list of dataframes. This just prints the head of the first one so we can see column names/attributes
 				for df in dataf:
 					print(df.head())
-					break;
-				break;
+					break; #break from the for loop as we only need the first head
+				#break;
 			elif (check == 0):
 				print("error, try again or q to quit")
 			
