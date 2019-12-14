@@ -21,3 +21,5 @@ Video Demonstration:
 
 
 Final Project Paper:
+
+https://github.com/Cartercreid/CSPB4502_project_yelp/blob/master/Group4_Exploring_Yelp_Part4.pdf
