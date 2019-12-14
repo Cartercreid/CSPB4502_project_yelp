@@ -19,6 +19,7 @@ Our findings can be used to improve the capability of a user to have his or her 
 
 Video Demonstration:
 
+https://youtu.be/MIrSnHveNxA
 
 Final Project Paper:
 
